@@ -16,18 +16,18 @@ This is a Flutter example app, showing how to process payments with Supabase Fun
 
 - Set up env vars for Supabase Functions:
   - `cp .env.example .env`
-  - Fill in your Stripe API keys from https://stripe.com/docs/development/quickstart#api-keys
+  - Fill in your Stripe API keys from <https://stripe.com/docs/development/quickstart#api-keys>
 - Set up env vars for the Flutter app:
   - open `app/config.dart`
-  - Fill in your _public_ Supabase keys from https://app.supabase.io/project/_/settings/api
-  - Fill in your _public_ Stripe keys from https://stripe.com/docs/development/quickstart#api-keys
+  - Fill in your _public_ Supabase keys from <https://app.supabase.io/project/_/settings/api>
+  - Fill in your _public_ Stripe keys from <https://stripe.com/docs/development/quickstart#api-keys>
 
 ### Supabase Functions
 
 Supabase Functions are written in TypeScript, run via Deno, and deployed with the Supabase CLI. Please [download](https://github.com/supabase/cli#install-the-cli) the latest version of the Supabase CLI, or [upgrade](https://github.com/supabase/cli#install-the-cli) it if you have it already installed.
 
 - Generate access token and log in to CLI
-  - Navigate to https://app.supabase.io/account/tokens
+  - Navigate to <https://app.supabase.io/account/tokens>
   - Click "Generate New Token"
   - Copy newly created token
   - run `supabase login`
