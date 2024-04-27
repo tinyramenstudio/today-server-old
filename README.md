@@ -29,11 +29,11 @@ Supabase Functions are written in TypeScript, run via Deno, and deployed with th
   - run `supabase login`
   - Input your token when prompted
 - Link your project
-  - Within your project root run `supabase link --ref your-project-ref`
+  - Within your project root run `supabase link --project-ref your-project-ref`
 
 ### Develop locally
 
-- Run `supabase start` (make sure your Docker daemon is running.)
+- Run `supabase start --debug` (make sure your Docker daemon is running.)
 - Run `supabase functions serve --env-file .env payment-sheet`
   - NOTE: no need to specify `SUPABASE_URL` and `SUPABASE_ANON_KEY` as they are automatically supplied for you from the linked project.
 - Run the Chrome web extension separately (see <https://github.com/tinyramenstudio/today-webext?tab=readme-ov-file#getting-started>)
