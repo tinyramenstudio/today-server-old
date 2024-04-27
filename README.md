@@ -1,6 +1,6 @@
-# Flutter Stripe Payments with Supabase Functions
+# Stripe Payments with Supabase Functions
 
-This is a Flutter example app, showing how to process payments with Supabase Functions for authenticated customers.
+This is an example server showing how to process payments with Supabase Functions for authenticated customers.
 
 ![Demo gif](./demo.gif)
 
@@ -16,33 +16,27 @@ This is a Flutter example app, showing how to process payments with Supabase Fun
 
 - Set up env vars for Supabase Functions:
   - `cp .env.example .env`
-  - Fill in your Stripe API keys from https://stripe.com/docs/development/quickstart#api-keys
-- Set up env vars for the Flutter app:
-  - open `app/config.dart`
-  - Fill in your _public_ Supabase keys from https://app.supabase.io/project/_/settings/api
-  - Fill in your _public_ Stripe keys from https://stripe.com/docs/development/quickstart#api-keys
+  - Fill in your Stripe API keys from <https://stripe.com/docs/development/quickstart#api-keys>
 
 ### Supabase Functions
 
 Supabase Functions are written in TypeScript, run via Deno, and deployed with the Supabase CLI. Please [download](https://github.com/supabase/cli#install-the-cli) the latest version of the Supabase CLI, or [upgrade](https://github.com/supabase/cli#install-the-cli) it if you have it already installed.
 
 - Generate access token and log in to CLI
-  - Navigate to https://app.supabase.io/account/tokens
+  - Navigate to <https://app.supabase.io/account/tokens>
   - Click "Generate New Token"
   - Copy newly created token
   - run `supabase login`
   - Input your token when prompted
 - Link your project
-  - Within your project root run `supabase link --ref your-project-ref`
+  - Within your project root run `supabase link --project-ref your-project-ref`
 
 ### Develop locally
 
-- Run `supabase start` (make sure your Docker daemon is running.)
+- Run `supabase start --debug` (make sure your Docker daemon is running.)
 - Run `supabase functions serve --env-file .env payment-sheet`
   - NOTE: no need to specify `SUPABASE_URL` and `SUPABASE_ANON_KEY` as they are automatically supplied for you from the linked project.
-- Run the Flutter app in a separate terminal window:
-  - `cd app`
-  - `flutter run`
+- Run the Chrome web extension separately (see <https://github.com/tinyramenstudio/today-webext?tab=readme-ov-file#getting-started>)
 - Make some test moneys 💰🧧💵
 - Stop local development
   - Kill the "supabase functions serve watcher" (ctrl + c)
@@ -57,7 +51,5 @@ Supabase Functions are written in TypeScript, run via Deno, and deployed with th
   - Within your project root run `supabase functions deploy payment-sheet`
 
 ## 👁⚡️👁
-
-\o/ That's it, you can now invoke your Supabase Function via the [`supabase-js`](https://www.npmjs.com/package/@supabase/supabase-js) and [`supabase-dart`](https://pub.dev/packages/supabase) client libraries. (More client libraries coming soon. Check the [supabase-community](https://github.com/supabase-community#client-libraries) org for details).
 
 For more info on Supabase Functions, check out the [docs](https://supabase.com/docs/guides/functions) and the [examples](https://github.com/supabase/supabase/tree/master/examples/edge-functions).
