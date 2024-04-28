@@ -1,8 +1,6 @@
-# Stripe Payments with Supabase Functions
+# today-server
 
-This is an example server showing how to process payments with Supabase Functions for authenticated customers.
-
-![Demo gif](./demo.gif)
+This is the REST API server that leverages Supabase Functions for Today app authenticated customers.
 
 ## Setup
 
@@ -20,7 +18,12 @@ This is an example server showing how to process payments with Supabase Function
 
 ### Supabase Functions
 
-Supabase Functions are written in TypeScript, run via Deno, and deployed with the Supabase CLI. Please [download](https://github.com/supabase/cli#install-the-cli) the latest version of the Supabase CLI, or [upgrade](https://github.com/supabase/cli#install-the-cli) it if you have it already installed.
+Supabase Functions are written in TypeScript, run via Deno, and deployed with the Supabase CLI. You have two options to install the Supabase CLI; you can either:
+
+1. [Download](https://github.com/supabase/cli#install-the-cli) the latest version of the Supabase CLI, or [upgrade](https://github.com/supabase/cli#install-the-cli) it if you have it already installed.
+1. Run `npm ci` (see [package.json](./package.json) for dependency details) (make sure you have a recent version of Node and npm installed on your development machine). This is not "globally-installed", so to use it you need to add `<present-working-directory>/node_modules/.bin` to your `PATH` environment variable. e.g. `export PATH="${PATH}:/Users/michaeldesenna/desenna/today-server/node_modules/.bin"`
+
+Verify that the Supabase CLI is properly installed: `supabase --version`, then:
 
 - Generate access token and log in to CLI
   - Navigate to <https://app.supabase.io/account/tokens>
@@ -29,17 +32,22 @@ Supabase Functions are written in TypeScript, run via Deno, and deployed with th
   - run `supabase login`
   - Input your token when prompted
 - Link your project
-  - Within your project root run `supabase link --project-ref your-project-ref`
+  - Within your project root run `supabase link --project-ref <your-project-ref>`
+  - To obtain `your-project-ref` from Supabase UI:
+    1. Go to the `Today` project
+    1. `Project Settings` -> `General` -> `Reference ID` -> `Copy` button
+
+![Project Settings](./static-assets/images/project-settings.png)
+
+![Reference ID](./static-assets/images/reference-id.png)
 
 ### Develop locally
 
-- Run `supabase start --debug` (make sure your Docker daemon is running.)
-- Run `supabase functions serve --env-file .env payment-sheet`
+- Run `supabase start --debug` (make sure your Docker daemon is running)
+- Run `supabase functions serve hello`
   - NOTE: no need to specify `SUPABASE_URL` and `SUPABASE_ANON_KEY` as they are automatically supplied for you from the linked project.
-- Run the Chrome web extension separately (see <https://github.com/tinyramenstudio/today-webext?tab=readme-ov-file#getting-started>)
-- Make some test moneys 💰🧧💵
 - Stop local development
-  - Kill the "supabase functions serve watcher" (ctrl + c)
+  - Kill the `supabase functions serve hello` (ctrl + c)
   - Run `supabase stop` to stop the Docker containers.
 
 ### Deploy
@@ -48,7 +56,7 @@ Supabase Functions are written in TypeScript, run via Deno, and deployed with th
   - Run `supabase secrets set --from-stdin < .env` to set the env vars from your `.env` file.
   - You can run `supabase secrets list` to check that it worked and also to see what other env vars are set by default.
 - Deploy the function
-  - Within your project root run `supabase functions deploy payment-sheet`
+  - Within your project root run `supabase functions deploy hello`
 
 ## 👁⚡️👁
 
