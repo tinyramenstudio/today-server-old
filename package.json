@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "supabase": "^1.163.6"
+  },
+  "devDependencies": {
+    "eslint": "^9.1.1"
   }
 }
