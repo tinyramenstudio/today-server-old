@@ -3,6 +3,7 @@ import { stripe } from "../_utils/stripe.ts";
 import { createOrRetrieveCustomer } from "../_utils/supabase.ts";
 
 console.log("payment-sheet handler up and running!");
+
 serve(async (req) => {
   try {
     // Get the authorization header from the request.

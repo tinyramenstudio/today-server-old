@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "stripe": "^15.4.0",
     "supabase": "^1.163.6"
+  },
+  "devDependencies": {
+    "eslint": "^9.1.1"
   }
 }
