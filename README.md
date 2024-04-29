@@ -14,7 +14,7 @@ This is the REST API server that leverages Supabase Functions for Today app auth
 
 - Set up env vars for Supabase Functions:
   - `cp .env.example .env`
-  - Fill in your Stripe API keys from <https://stripe.com/docs/development/quickstart#api-keys>
+  - Fill in your Stripe API keys from <https://docs.stripe.com/keys#obtain-api-keys>
 
 ### Supabase Functions
 
